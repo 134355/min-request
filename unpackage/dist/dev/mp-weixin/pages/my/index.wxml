@@ -1,0 +1,1 @@
+<view class="content" bind:__l="__l"><image class="logo" src="{{imgURL}}"></image><view><text class="title">{{title}}</text></view><view><text class="title">{{name}}</text></view><view><text class="title">{{test}}</text></view><button data-event-opts="{{[['tap',[['toPage',['$event']]]]]}}" bindtap="__e">跳转到首页页面</button></view>

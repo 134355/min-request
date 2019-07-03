@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['openPage',['$event']]]]]}}" bindtap="__e" class="_div" bind:__l="__l"><slot></slot></view>
