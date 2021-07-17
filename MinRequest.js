@@ -82,22 +82,35 @@ class MinRequest {
     options.method = 'POST'
     return this.request(options)
   }
+  
+  put (url, data, options = {}) {
+    options.url = url
+    options.data = data
+    options.method = 'PUT'
+    return this.request(options)
+  }
+  
+  delete (url, data, options = {}) {
+    options.url = url
+    options.data = data
+    options.method = 'DELETE'
+    return this.request(options)
+  }
 }
 
 MinRequest.install = function (Vue) {
   Vue.mixin({
     beforeCreate: function () {
 			if (this.$options.minRequest) {
-        console.log(this.$options.minRequest)
+				// 安装的api
 				Vue._minRequest = this.$options.minRequest
 			}
     }
   })
-  Object.defineProperty(Vue.prototype, '$minApi', {
+  Object.defineProperty(Vue.prototype, '$minApi', {  // 挂载到minApi上
     get: function () {
 			return Vue._minRequest.apis
 		}
   })
 }
-
 export default MinRequest
