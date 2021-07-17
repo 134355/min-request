@@ -19,7 +19,7 @@
 		},
 		onLoad() {
 			// 解析路由参数
-			console.log(this.$parseURL())
+			// console.log(this.$parseURL())
 			
 			// 'name'不是以下划线开头的表示会缓存到Map中，在程序生命周期内有并且在有效时间内有效
 			this.$cache.set('name', 'MinCache')
@@ -48,14 +48,15 @@
 
 			// 给定缓存时间10s
 			this.$cache.set('test_timeout', 'test_timeout', 10)
-			console.log(this.$cache.get('test_timeout'))
+			// console.log(this.$cache.get('test_timeout'))
 			setTimeout(() => {
-				console.log(this.$cache.get('test_timeout'))
+				// console.log(this.$cache.get('test_timeout'))
 			}, 11000)
 			
 
 			this.testRequest1()
 			this.testRequest2()
+			this.testRequest3()
 		},
 		methods: {
 			toPage () {
@@ -68,7 +69,7 @@
 
 			// 使用方法一
 			testRequest1 () {
-				this.$minApi.uniapp({wd: 'uni-app'}).then(res => {
+				this.$ab.uniapp({wd: 'uni-app'}).then(res => {
 					this.res = res
 					console.log(res)
 				}).catch(err => {
@@ -79,11 +80,23 @@
 			// 使用方式二
 			async testRequest2 () {
 				try {
-					const res = await this.$minApi.login({wd: 'uni-app'})
+					const res = await this.$ab.login({wd: 'uni-app'})
 					console.log(res)
 				} catch (err) {
 					console.log(err)
 				}
+			},
+			testRequest3(){
+				// this.$ab.get("/login",{
+				// 	name:"zhangsan"
+				// }).then(res=>{
+				// 	console.log("获取到了返回值",res)
+				// })
+				// '/login',{name:'zhangsan'}
+				// console.log("get方法",this.$get)
+				this.$get('/login',{name:'zhangsan'}).then(res=>{
+					console.log(res)
+				})
 			}
 		}
 	}

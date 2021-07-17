@@ -13,7 +13,7 @@ function isTimeout (name) {
       try {
         uni.removeStorageSync(name)
       } catch (e) {
-        console.log(e)
+        // console.log(e)
       }
     }
     return true
@@ -38,11 +38,11 @@ class MinCache {
           const value = uni.getStorageSync(name)
           cacheMap.set(name, value)
         } catch (e) {
-          console.log(e)
+          // console.log(e)
         }
       })
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
     timeoutDefault = timeout
   }
@@ -54,7 +54,7 @@ class MinCache {
         uni.setStorageSync(name, cachecell)
         cache = cacheMap.set(name, cachecell)
       } catch (e) {
-        console.log(e)
+        // console.log(e)
       }
     } else {
       cache = cacheMap.set(name, cachecell)
@@ -71,7 +71,7 @@ class MinCache {
         uni.removeStorageSync(name)
         value = cacheMap.delete(name)
       } catch (e) {
-        console.log(e)
+        // console.log(e)
       }
     } else {
       value = cacheMap.delete(name)
@@ -88,7 +88,7 @@ class MinCache {
       cacheMap.clear()
       value = true
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
     return value
   }
