@@ -79,7 +79,7 @@
 			// 使用方式二
 			async testRequest2 () {
 				try {
-					const res = await this.$minApi.uniapp({wd: 'uni-app'})
+					const res = await this.$minApi.login({wd: 'uni-app'})
 					console.log(res)
 				} catch (err) {
 					console.log(err)

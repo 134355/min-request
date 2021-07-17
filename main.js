@@ -8,7 +8,7 @@ import minRouter from './router'
 import mina from './components/min-a.vue'
 import MinCache from './MinCache'
 import MinRequest from './MinRequest'
-import minRequest from './api'
+import minRequest from './apis'
 
 Vue.config.productionTip = false
 
